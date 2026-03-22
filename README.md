@@ -1,46 +1,130 @@
-# Getting Started with Create React App
+# Vi-Notes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Vi-Notes** is an authenticity verification platform designed to distinguish genuine human-written content from AI-generated or AI-assisted text. The system focuses on analyzing **writing behavior** alongside **statistical and linguistic characteristics** of the text to establish reliable authorship verification.
 
-## Available Scripts
+This repository represents the **design and conceptual foundation** for the Vi-Notes system.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Motivation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+With the widespread availability of AI writing tools, verifying true human authorship has become increasingly challenging. Most existing detection methods rely primarily on textual analysis, which can be inconsistent and easy to bypass.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Vi-Notes approaches this problem by combining:
+- Behavioral signals from the writing process
+- Statistical analysis of the written content
+- Correlation between how content is written and what is written
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Core Idea
 
-### `npm run build`
+Human writing naturally includes:
+- Variable typing speeds
+- Pauses during thinking
+- Revisions during idea formation
+- Irregular sentence structures
+- A relationship between content complexity and editing frequency
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+AI-generated or pasted text often lacks these behavioral signatures.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Vi-Notes is designed to capture and analyze these characteristics to assess authorship authenticity.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Key Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Writing Session Monitoring
+- Capture keystroke timing metadata (not raw key content)
+- Track pauses, deletions, edits, and writing flow
+- Detect pasted or externally inserted text blocks
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Behavioral Pattern Analysis
+- Pause distribution before sentences and paragraphs
+- Typing speed variance
+- Revision frequency relative to text complexity
+- Micro-pauses around punctuation and structural boundaries
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Textual Statistical Analysis
+- Sentence length variation
+- Vocabulary diversity metrics
+- Stylistic consistency analysis
+- Linguistic irregularities typical of human writing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Cross-Verification Engine
+- Correlate keyboard behavior with text evolution
+- Identify mismatches between behavioral data and content
+- Flag suspicious uniformity patterns
 
-## Learn More
+### Authenticity Reports
+- Confidence score for human authorship
+- Highlighted suspicious segments
+- Supporting behavioral and textual indicators
+- Shareable verification summaries
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tech Stack (MERN Architecture)
+
+### Frontend
+- React
+- TypeScript
+- Electron for desktop-level keyboard event access
+
+### Backend
+- Node.js
+- Express.js
+- RESTful APIs for session handling and analysis
+
+### Database
+- MongoDB
+- Encrypted storage for writing sessions, keystroke metadata, and reports
+
+### Machine Learning
+- TensorFlow / PyTorch
+- Supervised learning for human vs AI-assisted writing
+- Unsupervised anomaly detection
+- NLP-based statistical signature analysis
+
+---
+
+## Privacy & Ethics
+
+Vi-Notes is designed with privacy-first principles:
+
+- No storage of raw keystroke content
+- Only timing, frequency, and structural metadata is collected
+- Encrypted data storage
+- User-controlled session tracking
+- Monitoring limited strictly to active writing sessions
+
+---
+
+## Project Goals
+
+- Restore trust in written content authenticity
+- Differentiate between human-written, AI-assisted, and AI-generated text
+- Adapt detection methods as AI writing tools evolve
+- Maintain ethical, transparent, and privacy-conscious verification
+
+---
+
+## Repository Scope
+
+This repository currently serves as:
+- A design reference
+- A research and experimentation space
+- A foundation for future MERN-based implementation
+
+---
+
+## Contributing
+
+Contributions are welcome, especially for **feature requests and their implementation**.  
+If you are interested in working on an existing feature request or proposing a new one, please open or comment on an issue to start the discussion.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
