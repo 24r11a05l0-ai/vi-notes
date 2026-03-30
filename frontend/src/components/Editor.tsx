@@ -177,7 +177,7 @@ export default function Editor() {
 
         {/* Button */}
         <button className="button" onClick={saveSession}>
-          💾 Save Session Report
+           Save Session Report
         </button>
       </div>
     </div>
